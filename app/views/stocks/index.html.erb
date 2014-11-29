@@ -1,0 +1,78 @@
+<h1>Dashboard</h1>
+
+<div class='row'>
+  <div class='col-md-2' ng-controller='WatchingStocksController'>
+  	<h3>Watching Stocks</h3>
+    <ul class="list-group">
+    	<li class='list-group-item' ng-repeat="stock in watchingStocks">
+         <a href='/stocks/{{ stock.ticker_symbol }}'>{{ stock.ticker_symbol }}</a> 
+         <span ng-if='stock.price > stock.previous_close' style='color:green;'>
+           ${{ stock.price }}
+         </span>
+         <span ng-if='stock.price == stock.previous_close'>
+           ${{ stock.price }}
+         </span>
+         <span ng-if='stock.price < stock.previous_close' style='color:red;'>
+           ${{ stock.price }}
+         </span>
+      </li>
+
+    <li class='list-group-item'>
+      <input type="text" ng-model="newStock" />
+      <a href='#' ng-click="add()">
+        <span class='glyphicon glyphicon-plus' aria-hidden='true'>
+        </span>
+      </a>
+    </li>
+
+    <h3>Interesting Today</h3>
+    <ul class="list-group">
+    	<li class="list-group-item">
+        </li>
+    <% @stocks_to_check.each do |stock|  %>
+      <li class="list-group-item">
+        <%= stock.ticker_symbol %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+  <div class='col-md-6'>
+  	<h3>App Messages</h3>
+  	<ul class="list-group">
+  		<li class="list-group-item">
+  			message
+        </li>
+  	<% @messages.each do |message| %>
+	    <li class="list-group-item">
+  			<%= message %>
+        </li>
+  	<% end %>	
+    </ul>
+  </div>
+  <div class='col-md-2'>
+  	<h3>Current Positions</h3>
+
+  	<ul class="list-group">
+  		<li class="list-group-item">
+  			current message
+        </li>
+  	<% @open_positions.each do |open_position| %>
+
+  	<% end %>
+    </ul>
+  	<br />
+
+	<h3>History</h3>
+
+  	<ul class="list-group">
+  		<li class="list-group-item">
+  			history message
+        </li>
+	<% @closed_positions.each do |closed_position| %>
+
+	<% end %>
+	</ul>
+  </div>
+</div>
+
+

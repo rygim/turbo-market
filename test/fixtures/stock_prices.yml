@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stock: 1
+  date: 2014-11-28 18:54:10
+  open: 9.99
+  high: 9.99
+  close: 9.99
+  volume: 1
+  adj_close: 9.99
+
+two:
+  stock: 1
+  date: 2014-11-28 18:54:10
+  open: 9.99
+  high: 9.99
+  close: 9.99
+  volume: 1
+  adj_close: 9.99
