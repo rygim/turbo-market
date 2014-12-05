@@ -11,10 +11,18 @@ class StocksController < ApplicationController
   	@stock = Stock.create(stock_params)
   	if @stock.save
   		respond_to do |format|
-  			format.html { render text: "please submit as json"}
+  			format.html { render text: "please submit as json" }
   			format.json { render text: "created stock #{@stock.ticker_symbol}" }
- 		end
+ 		  end
   	end
+  end
+
+  def show
+    @ticker_symbol = params[:ticker_symbol]
+  end
+
+  def stock
+    @stock = Stock.with_stock_ticker_ws(params[:ticker_symbol])
   end
 
   private

@@ -1,0 +1,41 @@
+<h1 id='stockName'>
+	<%= @ticker_symbol %>
+</h1>
+
+<style>
+  .axis path, .axis line {
+  	fill: none;
+  	stroke: #777;
+  	shape-rendering: crispEdges;
+  }
+</style>
+
+
+<h3>Chart</h3>
+<div ng-controller='StockChartController' ng-init="init('<%= @ticker_symbol %>')">
+	<svg id='visualization' width="1000" height="500"></svg>
+	<ul>
+		<li>
+		     
+		      <a href='#' ng-click="add()">
+		        Simple Moving Average<span class='glyphicon glyphicon-plus' aria-hidden='true'>
+		        </span>
+		      </a>
+		      <input type="text" ng-model="numDays" />
+		      <input id='colorpicker' ng-model='lineColor' />
+		</li>
+	</ul>
+</div>
+
+<script type='text/javascript'>
+$(document).ready(function(){
+	$('#colorpicker').colorpicker();
+});
+
+</script>
+
+	
+
+
+<h3>Messages</h3>
+

@@ -1,0 +1,1 @@
+json.data @stock, :ticker_symbol, :price, :previous_close, :price_change, :history

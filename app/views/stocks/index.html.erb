@@ -1,19 +1,19 @@
 <h1>Dashboard</h1>
 
 <div class='row'>
-  <div class='col-md-2' ng-controller='WatchingStocksController'>
+  <div class='col-md-3' ng-controller='WatchingStocksController'>
   	<h3>Watching Stocks</h3>
     <ul class="list-group">
     	<li class='list-group-item' ng-repeat="stock in watchingStocks">
          <a href='/stocks/{{ stock.ticker_symbol }}'>{{ stock.ticker_symbol }}</a> 
          <span ng-if='stock.price > stock.previous_close' style='color:green;'>
-           ${{ stock.price }}
+           ${{ stock.price }} (<span ng-if='stock.price_change > 0.0'>+</span>{{ stock.price_change }})
          </span>
          <span ng-if='stock.price == stock.previous_close'>
-           ${{ stock.price }}
+           ${{ stock.price }} (<span ng-if='stock.price_change > 0.0'>+</span>{{ stock.price_change }})
          </span>
          <span ng-if='stock.price < stock.previous_close' style='color:red;'>
-           ${{ stock.price }}
+           ${{ stock.price }} (<span ng-if='stock.price_change > 0.0'>+</span>{{ stock.price_change }})
          </span>
       </li>
 
